@@ -44,7 +44,7 @@ function stateHandler($stateProvider, $urlRouterProvider) {
             url:"/goods/{goodId}",
             component:"selectedcomp",
             resolve:{
-                data:function (dataservice, $transition$) {
+                data:function (dataservice, $transition$, $state) {
                     return dataservice.getSelectedGood($transition$.params().goodId).then(function (res) {
                         return res.data
                     },function (error) {

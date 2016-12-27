@@ -47,6 +47,9 @@ function stateHandler($stateProvider, $urlRouterProvider) {
                 data:function (dataservice, $transition$) {
                     return dataservice.getSelectedGood($transition$.params().goodId).then(function (res) {
                         return res.data
+                    },function (error) {
+                        alert('Page Does Not Exist');
+                        $state.go('main.goods');
                     })
                 },
                 comments:function (dataservice, $transition$) {
